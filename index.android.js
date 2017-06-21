@@ -12,12 +12,12 @@ import {
   View
 } from 'react-native';
 
-export default class reactNativeDome extends Component {
+export default class reactNative extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to React Native! baifan
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.android.js
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('reactNativeDome', () => reactNativeDome);
+AppRegistry.registerComponent('reactNative', () => reactNative);
