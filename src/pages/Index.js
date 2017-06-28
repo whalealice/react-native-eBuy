@@ -17,15 +17,19 @@ export default class Index extends Component {
   };
   _onLongButton(){
     alert('_onLongButton')
-  }l
+  };
+  static navigationOptions = {
+    title: 'Welcome',
+  };
   render() {
+    const {params} = this.props.navigation.state;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Welcome 111to React Native!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
+          chat with {params.user}
         </Text>
         <Text style={styles.instructions}>
           Press Cmd+R to reload,{'\n'}

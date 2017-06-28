@@ -18,7 +18,9 @@ const SimpleApp = StackNavigator({
       header:null,  //头部导航隐藏
     }
   },
-  Index:{screen:Index},
+  Index:{
+    screen:Index
+  },
   List:{screen:List}
 
 });
