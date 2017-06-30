@@ -65,21 +65,22 @@ export default class Main extends Component {
           <Text style={{color:'#4d99e5'}}>注册新用户</Text>
         </View>
 
-        <View>
+        <View style={styles.iconwrap}>
           <Text>其他方式登录:</Text>
+          <Image source={require('./../images/icon1.png')} style={styles.iconother}/>
+          <Image source={require('./../images/icon2.png')} style={styles.iconother}/>
+          <Image source={require('./../images/icon3.png')} style={styles.iconother}/>
         </View>
       </View>
     );
   };
   //点击登录
   _onPress(){
-    // alert(this.state.userpassword)
     if(this.state.username.length > 0 && this.state.userpassword.length > 0){
-      this.props.navigation.navigate('Index',{user:'crisitina'});
+      this.props.navigation.navigate('Home',{user:'crisitina'});
     }else{
       return false;
     }
-    // this.props.navigation.navigate('Index',{user:'crisitina'});
   };
 
   //输入框内容改变
@@ -133,8 +134,16 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
 
   },
+  iconwrap:{
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center',
+    marginTop:20
+  },
   iconother:{
-    width:40,
-    height:40
+    width:30,
+    height:30,
+    marginLeft:8,
+    borderRadius:15
   }
 });
