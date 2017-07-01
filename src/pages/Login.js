@@ -77,7 +77,7 @@ export default class Main extends Component {
   //点击登录
   _onPress(){
     if(this.state.username.length > 0 && this.state.userpassword.length > 0){
-      this.props.navigation.navigate('Home',{user:'crisitina'});
+      this.props.navigation.navigate('Main',{user:'crisitina'});
     }else{
       return false;
     }

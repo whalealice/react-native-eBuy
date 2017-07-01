@@ -7,20 +7,34 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
   TouchableHighlight,
   TouchableOpacity
 } from 'react-native';
 
-export default class Index extends Component {
+import {mainStyles} from './../../style/mainstyle';
+
+const homeIcon = require('./../../images/icon_tabbar_homepage.png');
+const clickIcon = require('./../../images/icon_tabbar_homepage_selected.png');
+
+export default class Main extends Component {
+  static navigationOptions = {
+    tabBarLabel: '首页',
+      // Note: By default the icon is only shown on iOS. Search the showIcon option below.
+    tabBarIcon: ({tintColor, focused }) => (
+      <Image
+        source={!focused ? homeIcon : clickIcon }
+        style={[mainStyles.icon]}
+      />
+    )
+  };
   _onPressButton() {
     // alert("You tapped the button!");
   };
   _onLongButton(){
     alert('_onLongButton')
   };
-  static navigationOptions = {
-    title: 'Welcome',
-  };
+
   render() {
     const {params} = this.props.navigation.state;
     return (
@@ -29,7 +43,7 @@ export default class Index extends Component {
           Welcome 111to React Native!
         </Text>
         <Text style={styles.instructions}>
-          chat with {params.user}
+          chat with
         </Text>
         <Text style={styles.instructions}>
           Press Cmd+R to reload,{'\n'}
@@ -60,5 +74,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
-  },
+  }
 });

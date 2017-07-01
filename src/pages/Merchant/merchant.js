@@ -7,14 +7,28 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
   TextInput,
   TouchableHighlight,
   TouchableOpacity
 } from 'react-native';
 
+import {mainStyles} from './../../style/mainstyle';
+
+
+const merchantIcon = require('./../../images/icon_tabbar_merchant_normal.png');
+const clickIcon = require('./../../images/icon_tabbar_merchant_selected.png');
+
 export default class List extends Component {
   static navigationOptions = {
-    title: '你好',//设置标题内容
+    title: '商家',
+      // Note: By default the icon is only shown on iOS. Search the showIcon option below.
+    tabBarIcon: ({ tintColor,focused }) => (
+      <Image
+        source={!focused ? merchantIcon : clickIcon}
+        style={[mainStyles.icon]}
+      />
+    )
   };
   constructor(props) {
     super(props);
