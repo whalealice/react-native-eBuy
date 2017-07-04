@@ -9,7 +9,6 @@ import {
   View,
   Image,
   TextInput,
-  TouchableHighlight,
   TouchableOpacity
 } from 'react-native';
 
@@ -36,11 +35,9 @@ export default class List extends Component {
   render() {
     return (
       <View style={styles.container}>
-  <TextInput style={styles.inputText}
-    password={true}
-      />
+        <TextInput style={styles.inputText} password={true} />
       </View>
-  );
+    );
   }
 }
 

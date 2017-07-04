@@ -23,5 +23,7 @@ export const mainStyles = StyleSheet.create({
   icon: {
     height: 25,
     width: 25,
-  },
+  }
 });
+
+// export const {height, width, scale, fontScale} = Dimensions.get('window');

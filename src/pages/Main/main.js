@@ -12,7 +12,10 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import SearchNav from './search';
 import {mainStyles} from './../../style/mainstyle';
+
+import ButtomTest from './buttom';
 
 const homeIcon = require('./../../images/icon_tabbar_homepage.png');
 const clickIcon = require('./../../images/icon_tabbar_homepage_selected.png');
@@ -28,34 +31,20 @@ export default class Main extends Component {
       />
     )
   };
-  _onPressButton() {
-    // alert("You tapped the button!");
-  };
-  _onLongButton(){
-    alert('_onLongButton')
+  _onPressSearch = () => {
+    // alert('点击了子组件的按钮')
+    this.props.navigation.navigate('商家');
   };
 
   render() {
     const {params} = this.props.navigation.state;
+    const { navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome 111to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          chat with
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-        <TouchableOpacity onPress={this._onPressButton}
-                          activeOpacity={0.3}>
-          <Text>Button</Text>
-        </TouchableOpacity>
+      <View>
+        <SearchNav onPressSearch={this._onPressSearch}/>
       </View>
     );
-  }
+  };
 }
 
 const styles = StyleSheet.create({
