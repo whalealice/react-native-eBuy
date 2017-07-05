@@ -7,7 +7,8 @@ import {
   StyleSheet,
   Text,
   Dimensions,
-  View
+  View,
+  Platform
 } from 'react-native';
 
 export const mainColor = "#F16118"
@@ -21,9 +22,11 @@ export const mainStyles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   icon: {
-    height: 25,
-    width: 25,
+    height: (Platform.OS === 'ios') ? 24 : 28,
+    width: (Platform.OS === 'ios') ? 24 : 28,
+    resizeMode:'contain'
   }
 });
+
 
 // export const {height, width, scale, fontScale} = Dimensions.get('window');

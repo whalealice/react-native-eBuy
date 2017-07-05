@@ -19,13 +19,15 @@ import Main from './pages/Main/main';
 import Merchant from './pages/Merchant/merchant';
 import Mine from './pages/Mine/mine';
 import More from './pages/More/more';
-import Search from './pages/Main/search';
-
 
 
 
 import {mainColor,mainStyles} from './style/mainstyle';
 
+
+const addressIcon = require('./images/icon_shop_local.png');
+const searchIcon = require('./images/icon_homepage_search.png');
+const setIcon = require('./images/icon_homepage_scan.png');
 
 const MainScreenNavigator = TabNavigator({
   '首页': {
@@ -34,11 +36,17 @@ const MainScreenNavigator = TabNavigator({
       header:null,  //头部导航隐藏
     }
   },
-  '商家': { screen: Merchant },
+  '商家': {
+    screen: Merchant,
+    navigationOptions: ({navigation}) => StackOptions(navigation,addressIcon,searchIcon)
+  },
   '我的': { screen: Mine },
-  '更多': { screen: More },
+  '更多': {
+    screen: More,
+    navigationOptions: ({navigation}) => StackOptions(navigation,'',setIcon)
+  },
 },{
-  initialRouteName: '首页', // 默认显示界面
+  initialRouteName: '更多', // 默认显示界面
   tabBarPosition:'bottom', // 设置tabbar的位置，iOS默认在底部，安卓默认在顶部。（属性值：'top'，'bottom')
   swipeEnabled: true, // 是否可以左右滑动切换tab
   tabBarOptions: {
@@ -61,30 +69,32 @@ const MainScreenNavigator = TabNavigator({
   }
 });
 
-// const StackOptions = ({navigation}) => {
-//   let {state,goBack} = navigation;
-//   const resetAction = NavigationActions.reset({
-//     index: 0,
-//     actions: [
-//       NavigationActions.navigate({ routeName: 'Search'})
-//     ]
-//   });
-//   const headerStyle = {backgroundColor:mainColor};
-//   const headerTitle =  null ;
-//   const headerTitleStyle = {fontSize:20,color:'white',fontWeight:'500'};
-//   const headerBackTitle = false;
-//   const headerLeft = (
-//     <TouchableOpacity onPress={()=>{navigation.navigate('DrawerOpen')}}>
-//       <View style={mainStyles.button}>
-//         <Text style={mainStyles.buttonText}>北京 </Text>
-//       </View>
-//     </TouchableOpacity>
-//   );
-//
-//
-//   return {headerStyle,headerTitle,headerTitleStyle,headerBackTitle,headerLeft}
-//
-// };
+//商家页面的导航
+const StackOptions = (navigation,headerLeftIcon,headerRightIcon) => {
+  let {state,goBack} = navigation;
+  //设置导航条的样式。背景色，宽高等。如果想去掉安卓导航条底部阴影可以添加elevation: 0，iOS下用shadowOpacity: 0。
+  const headerStyle = {
+    backgroundColor:mainColor,
+    elevation: 0
+  };
+  //设置导航条文字样式。安卓上如果要设置文字居中，只要添加alignSelf:'center'就可以了
+  const headerTitleStyle = {
+    fontSize:18,
+    color:'white',
+    fontWeight:'500',
+    alignSelf:'center'
+  };
+  //设置跳转页面左侧返回箭头后面的文字，默认是上一个页面的标题。可以自定义，也可以设置为null
+  const headerBackTitle = false;
+  const headerLeft = (
+    <Image style={[mainStyles.icon,{marginLeft:10}]}  source = {headerLeftIcon?headerLeftIcon:null}/>
+  );
+  const headerRight = (
+    <Image style={[mainStyles.icon,{marginRight:10}]} source = {headerRightIcon}/>
+  )
+
+  return { headerStyle , headerTitleStyle,headerBackTitle,headerLeft,headerRight}
+}
 
 
 

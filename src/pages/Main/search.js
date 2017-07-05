@@ -17,7 +17,7 @@ import {
 var Dimensions = require('Dimensions');
 var screenWidth = Dimensions.get('window').width;
 
-import {mainColor} from './../../style/mainstyle';
+import {mainColor,mainStyles} from './../../style/mainstyle';
 
 export default class ButtomTest extends Component {
   _onPressSearch = () => {
@@ -37,10 +37,10 @@ export default class ButtomTest extends Component {
           </View>
         </TouchableOpacity>
         <Image
-          style = {styles.iconBtn}
+          style = {mainStyles.icon}
           source={require('./../../images/icon_homepage_message.png')}/>
         <Image
-          style = {styles.iconBtn}
+          style = {mainStyles.icon}
           source={require('./../../images/icon_homepage_scan.png')}/>
 
       </View>
@@ -76,8 +76,4 @@ const styles = StyleSheet.create({
     width: 15,
     height: 15,
   },
-  iconBtn: {
-    width: 20,
-    height: 20,
-  }
 });

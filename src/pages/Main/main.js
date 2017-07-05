@@ -15,7 +15,6 @@ import {
 import SearchNav from './search';
 import {mainStyles} from './../../style/mainstyle';
 
-import ButtomTest from './buttom';
 
 const homeIcon = require('./../../images/icon_tabbar_homepage.png');
 const clickIcon = require('./../../images/icon_tabbar_homepage_selected.png');

@@ -9,13 +9,15 @@ import {
   View,
   Image,
   TextInput,
-  TouchableOpacity
+  ScrollView,
 } from 'react-native';
 
+import ViewCell from './viewcell'
 import {mainStyles} from './../../style/mainstyle';
 
 const moreIcon = require('./../../images/icon_tabbar_misc.png');
 const clickIcon = require('./../../images/icon_tabbar_misc_selected.png');
+
 
 export default class List extends Component {
   static navigationOptions = {
@@ -34,24 +36,44 @@ export default class List extends Component {
   };
   render() {
     return (
-      <View style={styles.container}>
-        <TextInput style={styles.inputText} password={true} />
-      </View>
+      <ScrollView>
+        <View style={[styles.container,{marginTop:10}]}>
+          <ViewCell title="我的账户"/>
+        </View>
+        <View style={styles.container}>
+          <ViewCell title="省流量模式"/>
+          <ViewCell title="消息提醒"/>
+          <ViewCell title="邀请好友"/>
+          <ViewCell title="清空缓存"/>
+        </View>
+        <View style={styles.container}>
+          <ViewCell title="意见反馈"/>
+          <ViewCell title="问卷调查"/>
+          <ViewCell title="支付帮助"/>
+          <ViewCell title="网络诊断"/>
+          <ViewCell title="关于活动"/>
+          <ViewCell title="我要加入"/>
+        </View>
+        <View style={styles.container}>
+          <ViewCell title="精品应用"/>
+          <ViewCell title="问卷调查"/>
+          <ViewCell title="支付帮助"/>
+          <ViewCell title="网络诊断"/>
+          <ViewCell title="关于活动"/>
+          <ViewCell title="我要加入"/>
+        </View>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    marginBottom:10
   },
-  inputText:{
-    borderColor:'#999',
-    borderWidth:1,
-    height:30,
-    width:200
+  listIcons:{
+    width:16,
+    height:16,
+    resizeMode:'contain'
   }
 });
