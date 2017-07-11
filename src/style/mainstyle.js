@@ -16,7 +16,6 @@ export const mainColor = "#F16118"
 export const mainStyles = StyleSheet.create({
   container: {
     flex: 1,
-    // paddingTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',

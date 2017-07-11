@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: mainColor,
     flexDirection:'row',
     alignItems:'center',
-    paddingTop:(Platform.OS === 'ios') ? 14 : 0,
+    paddingTop:Platform.OS === 'ios' ? 14 : 0,
     justifyContent:'space-around',
   },
   searchInput: {

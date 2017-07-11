@@ -22,7 +22,6 @@ const clickIcon = require('./../../images/icon_tabbar_homepage_selected.png');
 export default class Main extends Component {
   static navigationOptions = {
     tabBarLabel: '首页',
-      // Note: By default the icon is only shown on iOS. Search the showIcon option below.
     tabBarIcon: ({tintColor, focused }) => (
       <Image
         source={!focused ? homeIcon : clickIcon }

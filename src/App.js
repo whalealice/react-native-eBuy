@@ -40,13 +40,18 @@ const MainScreenNavigator = TabNavigator({
     screen: Merchant,
     navigationOptions: ({navigation}) => StackOptions(navigation,addressIcon,searchIcon)
   },
-  '我的': { screen: Mine },
+  '我的': {
+    screen: Mine,
+    navigationOptions:{
+      header:null,  //头部导航隐藏
+    }
+  },
   '更多': {
     screen: More,
     navigationOptions: ({navigation}) => StackOptions(navigation,'',setIcon)
   },
 },{
-  initialRouteName: '更多', // 默认显示界面
+  initialRouteName: '我的', // 默认显示界面
   tabBarPosition:'bottom', // 设置tabbar的位置，iOS默认在底部，安卓默认在顶部。（属性值：'top'，'bottom')
   swipeEnabled: true, // 是否可以左右滑动切换tab
   tabBarOptions: {
@@ -80,7 +85,7 @@ const StackOptions = (navigation,headerLeftIcon,headerRightIcon) => {
   //设置导航条文字样式。安卓上如果要设置文字居中，只要添加alignSelf:'center'就可以了
   const headerTitleStyle = {
     fontSize:18,
-    color:'white',
+    color:'#fff',
     fontWeight:'500',
     alignSelf:'center'
   };
