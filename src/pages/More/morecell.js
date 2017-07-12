@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     paddingLeft:10,
     paddingRight:10,
-    height:(Platform.OS === 'ios') ? 40 : 36,
+    height:(Platform.OS === 'ios') ? 44 : 40,
     borderColor:'#D8D8D8',
     borderBottomWidth:1
   },

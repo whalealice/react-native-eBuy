@@ -45,12 +45,26 @@ export default class List extends Component {
               <Image source={require('./../../images/header.png')} style={styles.mineIcon}/>
               <Text style={{fontSize:18,color:'#fff',fontWeight:'500'}}>crisitina</Text>
             </View>
-            <Image source={require('./../../images/icon_cell_rightarrow.png')}
-                   style={styles.mineArrow}
-            />
-
+            <Text style={styles.mineArrow}>&#xe65f;</Text>
+            {/*<Image source={require('./../../images/icon_cell_rightarrow.png')}*/}
+                   {/*style={styles.mineArrow}*/}
+            {/*/>*/}
           </View>
           {/* --下--*/}
+          <View style={styles.mineBottom}>
+            <View style={styles.mineItem}>
+              <Text style={styles.mineTitle}>100</Text>
+              <Text style={styles.mineTitle}>优惠劵</Text>
+            </View>
+            <View style={styles.mineItem}>
+              <Text style={styles.mineTitle}>100</Text>
+              <Text style={styles.mineTitle}>评价</Text>
+            </View>
+            <View style={[styles.mineItem,{borderRightWidth:0}]}>
+              <Text style={styles.mineTitle}>100</Text>
+              <Text style={styles.mineTitle}>收藏</Text>
+            </View>
+          </View>
         </View>
 
         <View style={styles.cellWrap}>
@@ -122,7 +136,7 @@ export default class List extends Component {
 
 const styles = StyleSheet.create({
   mineTop:{
-    height:100,
+    height:120,
     paddingTop:Platform.OS === 'ios' ? 14 : 0,
     backgroundColor:mainColor,
     flexDirection:'row',
@@ -145,11 +159,33 @@ const styles = StyleSheet.create({
     marginRight:10
   },
   mineArrow:{
-    width:Platform.OS === 'ios' ? 8 : 8,
-    height:Platform.OS === 'ios' ? 14 : 14,
-    resizeMode:'contain',
+    fontFamily:'iconfont',
+    color:'#fefefe',
+    fontSize:14
   },
 
+  mineBottom:{
+    height:44,
+    paddingTop:6,
+    paddingBottom:6,
+    backgroundColor:mainColor,
+    opacity:0.6,
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between',
+  },
+  mineItem:{
+    flex:1,
+    flexDirection:'column',
+    alignItems:'center',
+    borderRightWidth:1,
+    borderColor:'#fff',
+  },
+  mineTitle:{
+    color:'#fff',
+    fontSize:12,
+    paddingBottom:4
+  },
 
 
   cellWrap: {
